@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="contact.css">
+  <title></title>
+</head>
+<body style="background: url(back.png)">
+  <ul>
+                <li><a href="index.html">home</a><li>
+                <a href="services.html">services</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="videos.html">videos</a></li>
+            </ul>
+  <div class="container">
+    <form onsubmit="sendEmail(); reset(); return false;">
+      <h3>GET IN TOUCH</h3>
+      <input type="text" id="name" placeholder="your name" required>
+      <input type="email" id="email" placeholder="Email id" required>
+      <input type="text" id="phone" placeholder="phone no." required>
+      <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+      <button type="submit">send</button>
+    </form>
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail(){
+Email.send({
+        Host: "smtp.yourisp.com",
+        Username: "rajusharma9794167683@gmail.com",
+        Password: "sa6306827081",
+        To: 'rajusharma9794167683@gmail.com',
+        From: document.getElementById("email").value,
+        Subject: "This is the subject",
+        Body: "And this is the body"
+      }).then(
+        message => alert(message)
+      );
+    }
+  </script>
+</body>
+</html>
